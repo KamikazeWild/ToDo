@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../vscode/React/to-do"
+		},
+		{
+			"path": "../../../../../vscode/React/AdoptMe"
+		}
+	],
+	"settings": {},
+	"editor.defaultFormatter": esbenp.prettier-vscode,
+}
