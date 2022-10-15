@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react";
-import Form from "./Components/Form";
+// import Form from "./Components/Form";
 // import Details from "./Components/details";
 import { v4 as uuid } from "uuid";
+import ErrorBoundary from "./Components/ErrorBoundary";
 
 function Todo() {
-	const [todoList, setTodoList] = useState([]);
-	// localStorage.getItem("todoList")
+	const [todoList, setTodoList] = useState(
+		JSON.parse(localStorage.getItem("todoList"))
+	);
 
 	const addTodo = (formData) => {
 		const title = formData.get("title");
 		const details = formData.get("details");
 		const id = uuid();
-		const newTodoList = [...todoList, { title, details, id }];
+		let newTodoList = [];
+
+		if (todoList) {
+			newTodoList = [...todoList, { title, details, id }];
+		} else {
+			newTodoList = [{ title, details, id }];
+		}
 		setTodoList(newTodoList);
 	};
 
@@ -22,13 +30,13 @@ function Todo() {
 		setTodoList(newTodoList);
 	};
 
-	// useEffect(() => {
-	// 	if (todoList.length !== null) {
-	// 		localStorage.setItem("todoList", JSON.stringify(todoList));
-	// 	}
-	// }, [todoList]);
+	useEffect(() => {
+		if (todoList) {
+			localStorage.setItem("todoList", JSON.stringify(todoList));
+		}
+	}, [todoList]);
 
-	// console.log(todoList.length);
+	// console.log(todoList);
 	// console.log(localStorage.getItem("todoList"));
 
 	return (
@@ -39,6 +47,7 @@ function Todo() {
 					onSubmit={(e) => {
 						e.preventDefault();
 						const formData = new FormData(e.target);
+						// console.log({formData})
 						addTodo(formData);
 						e.target.reset();
 					}}
@@ -52,31 +61,35 @@ function Todo() {
 					<label htmlFor="details">
 						{" "}
 						Details &nbsp;
-						<input type="text" name="details" id="detials"></input>
+						<input type="text" name="details" id="details"></input>
 						&nbsp;
 					</label>
-					<button onClick={addTodo}>Submit</button>
+					<button>Submit</button>
 				</form>
 			</div>
-			{/* <Form addTodo /> */}
+			{/* <ErrorBoundary>
+				<Form addTodo />
+			</ErrorBoundary> */}
 			<div>
-				{todoList.map((todo) => {
-					return (
-						<div key={todo}>
-							<h2>{todo.title}</h2>
-							<h3>{todo.details}</h3>
-							{/* <h3>{todo.id}</h3> */}
-							<button
-								onClick={(e) => {
-									deleteTodo(todo.id);
-								}}
-							>
-								Done
-							</button>
-							<hr></hr>
-						</div>
-					);
-				})}
+				{todoList
+					? todoList.map((todo) => {
+							return (
+								<div key={todo.id}>
+									<h2>{todo.title}</h2>
+									<h3>{todo.details}</h3>
+									{/* <h3>{todo.id}</h3> */}
+									<button
+										onClick={(e) => {
+											deleteTodo(todo.id);
+										}}
+									>
+										Done
+									</button>
+									<hr></hr>
+								</div>
+							);
+					  })
+					: null}
 			</div>
 			{/* <Details todoList={todoList} removeTodo /> */}
 		</div>

@@ -1,17 +1,18 @@
-const Form = (addTodo) => {
+const Form = ({ addTodo }) => {
 	return (
 		<div>
 			<form
 				onSubmit={(e) => {
-					e.preventDefault;
+					e.preventDefault();
 					const formData = new FormData(e.target);
 					addTodo(formData);
+					e.target.reset();
 				}}
 			>
-				<label htmlFor="todo">
+				<label htmlFor="title">
 					{" "}
-					Title &nbsp;
-					<input type="text" name="todo" id="todo"></input>
+					title &nbsp;
+					<input type="text" name="title" id="title"></input>
 					&nbsp;
 				</label>
 				<label htmlFor="details">
@@ -20,7 +21,13 @@ const Form = (addTodo) => {
 					<input type="text" name="details" id="detials"></input>
 					&nbsp;
 				</label>
-				<button onClick={addTodo}>Submit</button>
+				<button
+					onClick={(e) => {
+						addTodo;
+					}}
+				>
+					Submit
+				</button>
 			</form>
 		</div>
 	);
