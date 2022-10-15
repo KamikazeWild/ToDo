@@ -1,5 +1,5 @@
 import "./App.css";
-import Todo from "./todo";
+import LandingPage from "./LandingPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 			<header className="App-header">
 				<BrowserRouter>
 					<Routes>
-						<Route path="/" element={<Todo />}></Route>
+						<Route path="/" element={<LandingPage />}></Route>
 					</Routes>
 				</BrowserRouter>
 			</header>

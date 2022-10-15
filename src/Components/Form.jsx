@@ -21,13 +21,7 @@ const Form = ({ addTodo }) => {
 					<input type="text" name="details" id="detials"></input>
 					&nbsp;
 				</label>
-				<button
-					onClick={(e) => {
-						addTodo;
-					}}
-				>
-					Submit
-				</button>
+				<button onClick={(e) => addTodo}>Submit</button>
 			</form>
 		</div>
 	);

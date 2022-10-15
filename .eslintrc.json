@@ -8,6 +8,7 @@
 		"prettier"
 	],
 	"rules": {
+		// setting rules to 0 disables them
 		"react/prop-types": 0,
 		"react/react-in-jsx-scope": 0
 	},
@@ -27,6 +28,11 @@
 	"settings": {
 		"react": {
 			"version": "detect"
+		},
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx"]
+			}
 		}
 	}
 }
