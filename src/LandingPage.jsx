@@ -17,17 +17,9 @@ function LandingPage() {
 		const title = formData.get("title");
 		const details = formData.get("details");
 		const id = uuid();
-		// let newTodoList = [];
 
-		// if (title) {
-		// 	if (todoList) {
-		// 		newTodoList = [...todoList, { title, details, id }];
-		// 	} else {
-		// 		newTodoList = [{ title, details, id }];
-		// 	}
 		const newTodoList = [...todoList, { title, details, id }];
 		setTodoList(newTodoList);
-		// }
 	};
 
 	const deleteTodo = (id) => {
@@ -35,10 +27,6 @@ function LandingPage() {
 			return obj.id !== id;
 		});
 		setTodoList(newTodoList);
-	};
-
-	const updateTodos = () => {
-		localStorage.setItem("todoList", JSON.stringify(todoList || []));
 	};
 
 	useEffect(() => {
