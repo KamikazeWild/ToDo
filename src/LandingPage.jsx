@@ -14,11 +14,11 @@ function LandingPage() {
 	);
 
 	const addTodo = (formData) => {
-		const title = formData.get("title");
+		const task = formData.get("task");
 		const details = formData.get("details");
 		const id = uuid();
 
-		const newTodoList = [...todoList, { title, details, id }];
+		const newTodoList = [...todoList, { task, details, id }];
 		setTodoList(newTodoList);
 	};
 
@@ -37,7 +37,10 @@ function LandingPage() {
 
 	return (
 		<div id="landing-page">
-			<h1>Todo List</h1>
+			<div className="header">
+				<h1>Todo List</h1>
+				<text>Compartmentalise your work</text>
+			</div>
 			<ErrorBoundary>
 				<Form addTodo={addTodo} />
 				<Details todoList={todoList} deleteTodo={deleteTodo} />

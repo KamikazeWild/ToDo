@@ -34,6 +34,14 @@ body {
 	border-radius: 0.4em;
 }
 
+.header h1 {
+	margin-bottom: 3px;
+}
+
+text {
+	opacity: 0.5;
+}
+
 form {
 	padding: 20px;
 }
@@ -67,7 +75,7 @@ li {
 	background: #3a6e948e;
 	border-radius: 4px;
 	padding: 10px;
-	margin: 10px 0;
+	margin: 10px -20px;
 	border-radius: 0.3em;
 }
 

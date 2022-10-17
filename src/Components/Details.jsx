@@ -7,7 +7,7 @@ const Details = ({ todoList, deleteTodo }) => {
 							return (
 								<div key={todo.id}>
 									<li>
-										<h2 id="todo-title">{todo.title}</h2>
+										<h2 id="todo-title">{todo.task}</h2>
 										<strong id="todo-details">{todo.details}</strong>
 										<button
 											id="done"

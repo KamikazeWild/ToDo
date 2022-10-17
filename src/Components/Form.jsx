@@ -10,14 +10,14 @@ const Form = ({ addTodo }) => {
 				}}
 			>
 				<label htmlFor="title">
-					Title
-					<input type="text" name="title" id="title"></input>
+					Task
+					<input type="text" name="task" id="task"></input>
 				</label>
 				<label htmlFor="details">
 					Details
 					<input type="text" name="details" id="detials"></input>
 				</label>
-				<button onClick={(e) => addTodo}>Submit</button>
+				<button onClick={(e) => addTodo}>Add Todo</button>
 			</form>
 		</div>
 	);

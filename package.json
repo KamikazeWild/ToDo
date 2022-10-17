@@ -27,7 +27,7 @@
 	"scripts": {
 		"format": "prettier --write \"src/**/*.{js,jsx}\"",
 		"lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-		"start": "BROWSER=none react-scripts start",
+		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
