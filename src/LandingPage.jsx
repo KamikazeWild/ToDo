@@ -36,7 +36,7 @@ function LandingPage() {
 	}, [todoList]);
 
 	return (
-		<div>
+		<div id="landing-page">
 			<h1>Todo List</h1>
 			<ErrorBoundary>
 				<Form addTodo={addTodo} />

@@ -10,16 +10,12 @@ const Form = ({ addTodo }) => {
 				}}
 			>
 				<label htmlFor="title">
-					{" "}
-					title &nbsp;
+					Title
 					<input type="text" name="title" id="title"></input>
-					&nbsp;
 				</label>
 				<label htmlFor="details">
-					{" "}
-					Details &nbsp;
+					Details
 					<input type="text" name="details" id="detials"></input>
-					&nbsp;
 				</label>
 				<button onClick={(e) => addTodo}>Submit</button>
 			</form>

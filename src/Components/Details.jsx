@@ -1,24 +1,28 @@
 const Details = ({ todoList, deleteTodo }) => {
 	return (
 		<div>
-			{todoList
-				? todoList.map((todo) => {
-						return (
-							<div key={todo.id}>
-								<h2>{todo.title}</h2>
-								<h3>{todo.details}</h3>
-								<button
-									onClick={(e) => {
-										deleteTodo(todo.id);
-									}}
-								>
-									Done
-								</button>
-								<hr></hr>
-							</div>
-						);
-				  })
-				: null}
+			<ul>
+				{todoList
+					? todoList.map((todo) => {
+							return (
+								<div key={todo.id}>
+									<li>
+										<h2 id="todo-title">{todo.title}</h2>
+										<strong id="todo-details">{todo.details}</strong>
+										<button
+											id="done"
+											onClick={(e) => {
+												deleteTodo(todo.id);
+											}}
+										>
+											Done
+										</button>
+									</li>
+								</div>
+							);
+					  })
+					: null}
+			</ul>
 		</div>
 	);
 };
